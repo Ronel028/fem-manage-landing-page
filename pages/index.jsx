@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Navigation from "@/components/navigation";
 import styles from "@/styles/Home.module.scss";
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
       <main>
-        <h2 className={styles.h2}>Hi, Next JS</h2>
+        <Navigation />
       </main>
     </>
   );
