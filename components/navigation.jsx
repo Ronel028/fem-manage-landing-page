@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./Button";
 import manageLogo from "@/public/logo.svg";
 import hamburgerIcon from "@/public/icon-hamburger.svg";
 import navStyle from "@/styles/Navigation.module.scss";
@@ -29,9 +30,7 @@ const Navigation = () => {
                 <Link href="/">Community</Link>
               </li>
             </ul>
-            <Link href="/" className={navStyle.button}>
-              Get Started
-            </Link>
+            <Button btnTitle="Get Started" />
             {/* desktop view */}
 
             {/* mobile view */}
