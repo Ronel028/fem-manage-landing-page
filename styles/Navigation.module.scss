@@ -37,11 +37,6 @@
       @include util.breakpoint(sm) {
         display: none;
       }
-
-      .hamburgerMenu,
-      .closeMenu {
-        display: block;
-      }
     }
   }
 }
@@ -68,7 +63,7 @@
 
   .menuMobile {
     background-color: var(--vary-light-gray);
-    margin-top: 100px;
+    margin-top: 117px;
     padding: 41px 0;
     border-radius: 7px;
     display: flex;
