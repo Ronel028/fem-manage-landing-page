@@ -37,6 +37,80 @@
       @include util.breakpoint(sm) {
         display: none;
       }
+
+      .hamburgerMenu,
+      .closeMenu {
+        display: block;
+      }
     }
+  }
+}
+
+// menu mobile
+.menuMobileMain {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.7525209913066789) 14%,
+    rgba(0, 0, 0, 0.3183473218388918) 62%,
+    rgba(250, 250, 240, 0.7357142686176033) 100%
+  );
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+
+  @include util.breakpoint(sm) {
+    display: none;
+  }
+
+  .menuMobile {
+    background-color: var(--vary-light-gray);
+    margin-top: 100px;
+    padding: 41px 0;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+
+    li {
+      a {
+        color: var(--dark-blue);
+        font-size: util.toRem(16);
+        font-weight: 500;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: var(--dark-grayish-blue);
+        }
+      }
+    }
+  }
+}
+
+.menuMobileClose {
+  display: none;
+  animation-name: fadeOut;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
