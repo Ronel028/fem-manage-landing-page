@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
 import manageLogo from "@/public/logo.svg";
-import hamburgerIcon from "@/public/icon-hamburger.svg";
-import closeIcon from "@/public/icon-close.svg";
 import { Twirl as Hamburger } from "hamburger-react";
 import navStyle from "@/styles/Navigation.module.scss";
 
@@ -43,19 +41,9 @@ const Navigation = () => {
             {/* desktop view */}
 
             {/* mobile view */}
-            {/* <button className={navStyle.menuButton} onClick={menuOpen}>
-              <Image
-                src={openMenu ? closeIcon : hamburgerIcon}
-                alt="hamburger icon"
-                width={openMenu ? "21" : "25"}
-                height={openMenu ? "22" : "18"}
-                className={openMenu ? "" : navStyle.hamburgerMenu}
-              />
-            </button> */}
             <button className={navStyle.menuButton}>
               <Hamburger toggled={openMenu} toggle={menuOpen} size={25} />
             </button>
-
             {/* mobile view */}
           </div>
         </div>

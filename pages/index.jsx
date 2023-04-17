@@ -1,7 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
+
+// components
 import Navigation from "@/components/navigation";
+import Button from "@/components/Button";
+// components
+
+// styles
 import styles from "@/styles/Home.module.scss";
+// styles
 
 export default function Home() {
   return (
@@ -12,8 +19,25 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <main>
-        <Navigation />
+      <main className={styles.main}>
+        <header className={styles.header}>
+          {/* navigation component */}
+          <Navigation />
+          {/* navigation component */}
+          <div className="wrapper">
+            <div className={styles.mainHeader}>
+              <div className={styles.headerContent}>
+                <h1>Bring everyone together to build better products.</h1>
+                <p>
+                  Manage makes it simple for software teams to plan day-to-day
+                  task while keeping the larger teams goals in view
+                </p>
+                <Button btnTitle="Get Started" />
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </header>
       </main>
     </>
   );

@@ -1,9 +1,4 @@
 @use "./util/index" as util;
 
-.h2 {
-  color: var(--bright-red);
-
-  @include util.breakpoint(small) {
-    color: violet;
-  }
+.main {
 }
