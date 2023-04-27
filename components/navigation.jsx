@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./Button";
 import manageLogo from "@/public/logo.svg";
 import { Twirl as Hamburger } from "hamburger-react";
 import navStyle from "@/styles/Navigation.module.scss";
@@ -13,9 +12,19 @@ const Navigation = () => {
     setOpenMenu((currentState) => !currentState);
   };
 
+  useEffect(() => {
+    const getWindowSize = () => {
+      if (window.innerWidth >= 730) {
+        setOpenMenu(false);
+      }
+    };
+    window.addEventListener("resize", getWindowSize);
+    return () => window.removeEventListener("resize", getWindowSize);
+  }, []);
+
   return (
-    <div>
-      <nav className={navStyle.nav}>
+    <>
+      <nav className={openMenu ? navStyle.navChange : navStyle.nav}>
         <div className="wrapper">
           <div className={navStyle.nav__container}>
             <Image src={manageLogo} alt="manage logo" width="146" height="24" />
@@ -37,7 +46,10 @@ const Navigation = () => {
                 <Link href="/">Community</Link>
               </li>
             </ul>
-            <Button btnTitle="Get Started" />
+            {/* <Button btnTitle="Get Started" /> */}
+            <Link href="/" className="navButton">
+              Get Started
+            </Link>
             {/* desktop view */}
 
             {/* mobile view */}
@@ -75,7 +87,7 @@ const Navigation = () => {
         </div>
       </div>
       {/* menu mobile */}
-    </div>
+    </>
   );
 };
 

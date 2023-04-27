@@ -1,4 +1,44 @@
 @use "./util/index" as util;
 
 .main {
+  .header {
+    .headerContainer {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 39px;
+
+      @include util.breakpoint(md) {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: auto;
+        column-gap: 9px;
+      }
+
+      .headerContent {
+        text-align: center;
+        @include util.breakpoint(md) {
+          text-align: left;
+        }
+        h1 {
+          font-size: clamp(1.875rem, 1.5367rem + 1.6603vw, 2.6875rem);
+          font-weight: 700;
+          color: var(--dark-blue);
+          margin-bottom: 22px;
+          @include util.breakpoint(md) {
+            max-width: 430px;
+          }
+        }
+        p {
+          font-weight: 400;
+          color: var(--dark-grayish-blue);
+          margin-bottom: 32px;
+          @include util.breakpoint(md) {
+            max-width: 330px;
+          }
+        }
+      }
+    }
+  }
 }

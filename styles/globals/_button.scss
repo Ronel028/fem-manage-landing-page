@@ -1,6 +1,6 @@
 @use "./util/index" as util;
 
-.button {
+.navButton {
   background-color: var(--bright-red);
   display: none;
   padding: 17px 37px;
@@ -14,6 +14,39 @@
   @include util.breakpoint(md) {
     display: block;
   }
+
+  &::after {
+    content: "";
+    background-color: var(--very-pale-red);
+    border-radius: 30px;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+  }
+  &:hover {
+    box-shadow: 1px 18px 31px -15px rgba(242, 95, 58, 0.79);
+    -webkit-box-shadow: 1px 18px 31px -15px rgba(242, 95, 58, 0.79);
+    -moz-box-shadow: 1px 18px 31px -15px rgba(242, 95, 58, 0.79);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+}
+
+.mainButton {
+  background-color: var(--bright-red);
+  display: inline-block;
+  padding: 17px 37px;
+  border-radius: 30px;
+  font-size: util.toRem(16);
+  font-weight: 700;
+  color: var(--vary-light-gray);
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
 
   &::after {
     content: "";

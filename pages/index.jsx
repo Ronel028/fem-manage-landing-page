@@ -1,10 +1,14 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 
 // components
 import Navigation from "@/components/navigation";
-import Button from "@/components/Button";
 // components
+
+// images
+import headerImage from "@/public/illustration-intro.svg";
+// images
 
 // styles
 import styles from "@/styles/Home.module.scss";
@@ -25,16 +29,30 @@ export default function Home() {
           <Navigation />
           {/* navigation component */}
           <div className="wrapper">
-            <div className={styles.mainHeader}>
+            <div className={styles.headerContainer}>
               <div className={styles.headerContent}>
                 <h1>Bring everyone together to build better products.</h1>
                 <p>
                   Manage makes it simple for software teams to plan day-to-day
                   task while keeping the larger teams goals in view
                 </p>
-                <Button btnTitle="Get Started" />
+                <Link href="/" className="mainButton">
+                  Get Started
+                </Link>
               </div>
-              <div></div>
+              <div className={styles.headerImage}>
+                <Image
+                  src={headerImage}
+                  alt="Illustration-intro"
+                  width="0"
+                  height="0"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    maxWidth: "586px",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </header>

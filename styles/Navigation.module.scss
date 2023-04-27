@@ -1,42 +1,53 @@
 @use "./util/index" as util;
 
+.navChange {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  padding: 0;
+  z-index: 999;
+}
 .nav {
   width: 100%;
   height: auto;
   padding-top: 49px;
-  &__container {
-    display: flex;
+  position: relative;
+  z-index: 999;
+}
+
+// nav container
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .linksDesktop {
+    display: none;
     align-items: center;
-    justify-content: space-between;
+    gap: 31px;
 
-    .linksDesktop {
-      display: none;
-      align-items: center;
-      gap: 31px;
+    @include util.breakpoint(sm) {
+      display: flex;
+    }
 
-      @include util.breakpoint(sm) {
-        display: flex;
-      }
+    li {
+      a {
+        color: var(--dark-blue);
+        font-size: util.toRem(16);
+        font-weight: 400;
+        transition: color 0.2s ease-in-out;
 
-      li {
-        a {
-          color: var(--dark-blue);
-          font-size: util.toRem(16);
-          font-weight: 400;
-          transition: color 0.2s ease-in-out;
-
-          &:hover {
-            color: var(--dark-grayish-blue);
-          }
+        &:hover {
+          color: var(--dark-grayish-blue);
         }
       }
     }
+  }
 
-    // mobile view
-    .menuButton {
-      @include util.breakpoint(sm) {
-        display: none;
-      }
+  // mobile view
+  .menuButton {
+    @include util.breakpoint(sm) {
+      display: none;
     }
   }
 }
@@ -52,7 +63,7 @@
   );
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   display: block;
   animation-name: fadeIn;
   animation-duration: 1s;
