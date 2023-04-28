@@ -8,6 +8,7 @@ import Navigation from "@/components/navigation";
 
 // images
 import headerImage from "@/public/illustration-intro.svg";
+import bg from "@/public/bg-tablet-pattern.svg";
 // images
 
 // styles
@@ -24,7 +25,13 @@ export default function Home() {
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
       <main className={styles.main}>
-        <header className={styles.header}>
+        <Image
+          src={bg}
+          width="0"
+          height="0"
+          className={styles.bgImagePattern}
+        />
+        <header className={styles.header} style={{ background: `url(${bg})` }}>
           {/* navigation component */}
           <Navigation />
           {/* navigation component */}
@@ -44,13 +51,7 @@ export default function Home() {
                 <Image
                   src={headerImage}
                   alt="Illustration-intro"
-                  width="0"
-                  height="0"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    maxWidth: "586px",
-                  }}
+                  className={styles.image}
                 />
               </div>
             </div>

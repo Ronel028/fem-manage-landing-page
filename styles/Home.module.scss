@@ -1,6 +1,24 @@
 @use "./util/index" as util;
 
 .main {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+  .bgImagePattern {
+    top: -134px;
+    right: -174px;
+    width: 511px;
+    height: 511px;
+    position: absolute;
+    z-index: -1;
+
+    @include util.breakpoint(xs) {
+      width: 814px;
+      height: 814px;
+      top: -249px;
+      right: -269px;
+    }
+  }
   .header {
     .headerContainer {
       margin-top: 48px;
@@ -37,6 +55,13 @@
           @include util.breakpoint(md) {
             max-width: 330px;
           }
+        }
+      }
+      .headerImage {
+        .image {
+          width: 100%;
+          height: auto;
+          max-width: 586px;
         }
       }
     }
